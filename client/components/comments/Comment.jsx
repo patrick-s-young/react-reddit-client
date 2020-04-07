@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Comment = ({body, level, bgColor}) => {
+const Comment = ({body, level}) => {
     const leftIndent = level * 40;
-    const opacity = (100 - leftIndent/2) * 0.01 
+    const bgColor = 255 - level * 5;
+    const rgb = [bgColor, bgColor, bgColor];
     const divStyle = {
       marginLeft: leftIndent,
-      opacity: opacity,
-      backgroundColor: bgColor
+      backgroundColor: `rgb(${rgb})`
     }
     return (
       <div className='comment'

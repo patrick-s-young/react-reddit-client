@@ -1,55 +1,176 @@
 body {
   margin: 0;
-  background: rgb(237, 237, 237);
+  font-family: 'Roboto', sans-serif;
+  font-size: 2vw;
+
+  background: rgb(255, 255, 255);
+}
+
+a {
+  color: rgb(118, 118, 118);
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(118, 118, 118);
+}
+/* 
+client/components/header/ 
+*/
+.header-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4vh;
+  box-shadow: -2px 2px 5px grey;
+  overflow: hidden;
+  padding-left: 1vw;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  color: rgb(57, 57, 57);
+  background-color: rgb(91, 228, 244);
 }
 
 
-#flex-container {
+.header-wrapper .search {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  align-self: end;
+  color: rgb(63, 62, 62);
+}
+
+.header-wrapper .search input {
+  width: 24vw;
+  font-size: 1.1em;
+  border-radius: 10px;
+  padding-left: 3px;
+
+  outline: none;
+}
+
+
+
+
+#navBar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: left;
+  margin-left: 1vw;
+
 }
 
-.parent-article {
-  width: 50vw;
-  font-family: 'Arial';
-  font-size: 3vh;
-  padding: 20px;
+.navButton {
+  outline: none;
+  font-size: 0.8em;
+  color: rgb(57, 57, 57);
+  background-color: rgb(255, 255, 255);
 }
 
-.parent-article > img {
-  display: inline-block;
-  width: 25vw;
-  alighn-left: 2px;
+.navButton:hover {
+  background-color:  rgb(91, 228, 244);
 }
+
+.navButton:active {
+  background-color:  rgb(91, 228, 244);
+}
+
+.navButtonSelected {
+  outline: none;
+  font-size: 0.8em;
+  background-color:  rgb(91, 228, 244);
+}
+
+#navBar span {
+  width: 2vw;
+
+}
+
+
+.article-wrapper {
+  display: grid;
+  grid-template-columns: 18vw auto;
+  grid-template-rows: 6vw 4vw;
+
+  font-size: 0.9em;
+  box-shadow: -2px 2px 5px grey;
+
+  color: rgb(57, 57, 57);
+  overflow: hidden;
+  padding: 1vw;
+}
+
+.article-wrapper:hover {
+  background-color: rgb(91, 228, 244);
+}
+
+.article-wrapper .image {
+  grid-column: 1;
+  grid-row: 1 / 2;
+}
+
+.article-wrapper img {
+  width: 16vw;
+  overflow: hidden; 
+}
+.article-wrapper .title {
+  grid-column: 2;
+  grid-row: 1;
+  overflow: hidden;
+}
+
+.article-wrapper .num-comments {
+  grid-column: 2;
+  grid-row: 2;
+  font-size: .8em;
+  margin-top: 1vh;
+  color:  rgb(179, 179, 179);
+}
+
+
+/* 
+client/components/comments/
+*/
+
+.parent-article-wrapper {
+  display: grid;
+  grid-template-columns: 18vw auto;
+  grid-template-rows: 6vw 4vw;
+
+  font-size: 0.9em;
+  box-shadow: -2px 2px 5px grey;
+
+  color: rgb(57, 57, 57);
+  overflow: hidden;
+  padding: 1vw;
+}
+
+.parent-article-wrapper .image {
+  grid-column: 1;
+  grid-row: 1 / 2;
+}
+
+.parent-article-wrapper img {
+  width: 16vw;
+  overflow: hidden; 
+}
+
+
+.parent-article-wrapper .title {
+  grid-column: 2;
+  grid-row: 1;
+
+  overflow: hidden; 
+}
+
+
+
 
 .comment {
-  font-family: 'Arial';
-  font-size: 2vh;
-  width: 50vw;
-  margin-top: 8px;
-  margin-left: 20px;
-  padding: 20px;
-  background-color: darkgoldenrod;
-  box-shadow: 3px 3px 0px grey;
-}
-
-
-
-
-
-.post {
-  margin-top: 2vw;
-  margin-left: 2vw;
+  font-size: 0.9em;
   box-shadow: -2px 2px 5px grey;
+
+  color: rgb(57, 57, 57);
+  overflow: hidden;
+  padding: 1vw;
 }
 
-.sortButton {
-  
-  background-color: rgb(244, 237, 235);
-}
-
-.sortButtonSelected {
-  outline-style: none;
-  background-color: aqua;
-}

@@ -4,7 +4,7 @@ const SortButton = ({label, keyName, keyValue, setState, selected}) => {
 
     return (
       <button 
-        className= {selected ? 'sortButtonSelected' : 'sortButton'}
+        className= {selected ? 'navButtonSelected' : 'navButton'}
         onClick=  { () => { 
                       setState(prevState => { 
                         return { ...prevState, [keyName]: keyValue} })}}>

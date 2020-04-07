@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import Header from '../header/Header.jsx';
 import SortButton from './SortButton.jsx';
 import Article from './Article.jsx';
 
 const Listings = () => {
   
   const baseURL = 'https://www.reddit.com/r';
-  const limit = 5;
+  const limit = 25;
   const sortDefault = 'hot';
-  const subDefault = 'onOff';
+  const subDefault = 'All';
 
   const [reddit, setReddit] = useState({ sub: subDefault, sort: sortDefault });
   const [dataObj, setDataObj] = useState(null);
@@ -16,6 +17,8 @@ const Listings = () => {
   useEffect(() => {
     fetchListing(`${baseURL}/${reddit.sub}/${reddit.sort}.json?limit=${limit}`); 
   }, [reddit]);
+
+
 
   function fetchListing (url) {
     fetch(url)
@@ -44,6 +47,7 @@ const Listings = () => {
         title={child.data.title} 
         sub={child.data.subreddit}
         t3Id={child.data.name}
+        numComments={child.data.num_comments}
         key={idx}/>));
   }
 
@@ -53,12 +57,14 @@ const Listings = () => {
     return (
       <div>
       <button
+        className='navButton'
         onClick={() => showPage('prev')}>
-        PREV
+        {'<< Prev'}
       </button>
       <button
+        className='navButton'
         onClick={() => showPage('next')}>
-        NEXT
+        {'Next >>'}
       </button>
       </div>
     )
@@ -76,17 +82,12 @@ const Listings = () => {
   return (
     <div>
       { dataObj !== null && 
-        showSortButtons()
+        <>
+        <Header searchDefault={reddit.sub} /> 
+        <div id='navBar'>{showSortButtons()}<span/>{showPrevNext()}</div>  
+        {showListing()}
+        </>  
       }
-
-      { dataObj !== null && 
-        showPrevNext()
-      }
-      
-      { dataObj !== null && 
-        showListing()
-      }
-
     </div>
   );
 }
