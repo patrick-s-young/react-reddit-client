@@ -19,8 +19,8 @@ client/components/header/
 */
 .header-wrapper {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 4vh;
+  grid-template-columns: 1fr, 1fr;
+  grid-template-rows: 1fr, 1fr;
   box-shadow: -2px 2px 5px grey;
   overflow: hidden;
   padding-left: 1vw;
@@ -40,6 +40,7 @@ client/components/header/
 }
 
 .header-wrapper .search input {
+
   width: 24vw;
   font-size: 1.1em;
   border-radius: 10px;
@@ -48,6 +49,16 @@ client/components/header/
   outline: none;
 }
 
+.header-wrapper .search-error {
+  grid-column: 2;
+  grid-row: 1;
+  width: 24vw;
+  font-size: 1.1em;
+  border-radius: 10px;
+  padding-left: 3px;
+
+  outline: none;
+}
 
 
 
@@ -135,13 +146,14 @@ client/components/comments/
   display: grid;
   grid-template-columns: 18vw auto;
   grid-template-rows: 6vw 4vw;
-
+  padding: 1vw;
+  padding-top: 20px;
+  margin-left: 20px;
   font-size: 0.9em;
   box-shadow: -2px 2px 5px grey;
-
   color: rgb(57, 57, 57);
   overflow: hidden;
-  padding: 1vw;
+
 }
 
 .parent-article-wrapper .image {
@@ -166,8 +178,9 @@ client/components/comments/
 
 
 .comment {
-  font-size: 0.9em;
+  font-size: 0.7em;
   box-shadow: -2px 2px 5px grey;
+
 
   color: rgb(57, 57, 57);
   overflow: hidden;

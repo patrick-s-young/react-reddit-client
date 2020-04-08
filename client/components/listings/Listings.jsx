@@ -12,6 +12,7 @@ const Listings = () => {
 
   const [reddit, setReddit] = useState({ sub: subDefault, sort: sortDefault });
   const [dataObj, setDataObj] = useState(null);
+
   const sortOptions = ['Hot', 'New', 'Top', 'Rising'];
 
   useEffect(() => {
@@ -83,7 +84,7 @@ const Listings = () => {
     <div>
       { dataObj !== null && 
         <>
-        <Header searchDefault={reddit.sub} /> 
+        <Header searchDefault={reddit.sub} update={(newSub) => setReddit(prev => ({...prev, sub: newSub}))}/> 
         <div id='navBar'>{showSortButtons()}<span/>{showPrevNext()}</div>  
         {showListing()}
         </>  

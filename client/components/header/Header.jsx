@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Header = ({searchDefault}) => {
+const Header = ({searchDefault, update, searchError}) => {
 
 
   const [search, setSearch] = useState(searchDefault);
@@ -17,6 +17,7 @@ const Header = ({searchDefault}) => {
   function handleSubmit(event) {
     console.log(`submit search for: ${event.target.value}`)
     event.preventDefault();
+    update(search);
   }
 
 
@@ -29,6 +30,7 @@ const Header = ({searchDefault}) => {
                       onChange={handleChange} 
                       onFocus={() => setSearch('')}/>
           </form>
+          <span className='search-error'>{searchError}</span>
         </div>
       </div>
     )
