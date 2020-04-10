@@ -5,21 +5,16 @@ import Article from './Article.jsx';
 
 const Listings = () => {
   
-  const baseURL = 'https://www.reddit.com/r';
-  const limit = 25;
   const sortDefault = 'hot';
   const subDefault = 'All';
+  const sortOptions = ['Hot', 'New', 'Top', 'Rising'];
 
   const [reddit, setReddit] = useState({ sub: subDefault, sort: sortDefault });
   const [dataObj, setDataObj] = useState(null);
 
-  const sortOptions = ['Hot', 'New', 'Top', 'Rising'];
-
   useEffect(() => {
-    fetchListing(`${baseURL}/${reddit.sub}/${reddit.sort}.json?limit=${limit}`); 
+    fetchListing(`${global.BASE_URL}/${reddit.sub}/${reddit.sort}.json?limit=${global.DEFAULT_LIMIT}`); 
   }, [reddit]);
-
-
 
   function fetchListing (url) {
     fetch(url)
@@ -52,11 +47,9 @@ const Listings = () => {
         key={idx}/>));
   }
 
-
-
   function showPrevNext () {
     return (
-      <div>
+      <div className='prevNext'>
       <button
         className='navButton'
         onClick={() => showPage('prev')}>
@@ -72,21 +65,22 @@ const Listings = () => {
   }
 
   function showPage (direction) {
+    window.scrollTo(0, 0);
     if (direction === 'next') {
-      fetchListing(`${baseURL}/${reddit.sub}/${reddit.sort}.json?limit=${limit}&after=${dataObj.data.after}&count=${limit}`);
+      fetchListing(`${global.BASE_URL}/${reddit.sub}/${reddit.sort}.json?limit=${global.DEFAULT_LIMIT}&after=${dataObj.data.after}&count=${global.DEFAULT_LIMIT}`);
     } else {
-      fetchListing(`${baseURL}/${reddit.sub}/${reddit.sort}.json?limit=${limit}&before=${dataObj.data.before}`);
+      fetchListing(`${global.BASE_URL}/${reddit.sub}/${reddit.sort}.json?limit=${global.DEFAULT_LIMIT}&before=${global.DEFAULT_LIMIT}`);
     }
   }
-
 
   return (
     <div>
       { dataObj !== null && 
         <>
         <Header searchDefault={reddit.sub} update={(newSub) => setReddit(prev => ({...prev, sub: newSub}))}/> 
-        <div id='navBar'>{showSortButtons()}<span/>{showPrevNext()}</div>  
+        <div id='navBar'>{showSortButtons()}{showPrevNext()}</div>  
         {showListing()}
+        <div className='prevNext'>{showPrevNext()}</div>
         </>  
       }
     </div>

@@ -6,6 +6,12 @@ body {
   background: rgb(255, 255, 255);
 }
 
+@media only screen and (max-width: 830px) {
+  body {
+    font-size: 3vw;
+  }
+}
+
 a {
   color: rgb(118, 118, 118);
   text-decoration: none;
@@ -13,6 +19,29 @@ a {
 
 a:visited {
   color: rgb(118, 118, 118);
+}
+
+.app-top {
+  width: 100%;
+  padding: 1vw;
+  background-color: rgb(91, 228, 244);
+  box-shadow: -2px 2px 5px grey;
+}
+
+.app-top img {
+  height: 3vw;
+}
+
+.app-top span {
+  padding-left: 0.5vw;
+}
+
+.app-top a {
+  color: rgb(43, 43, 43);
+}
+
+.app-bottom {
+  height: 4vw;
 }
 /* 
 client/components/header/ 
@@ -24,8 +53,7 @@ client/components/header/
   box-shadow: -2px 2px 5px grey;
   overflow: hidden;
   padding-left: 1vw;
-  padding-top: 2vw;
-  padding-bottom: 2vw;
+  padding-bottom: 1vw;
   color: rgb(57, 57, 57);
   background-color: rgb(91, 228, 244);
 }
@@ -63,11 +91,8 @@ client/components/header/
 
 
 #navBar {
-  display: flex;
-  flex-direction: row;
-  align-items: left;
   margin-left: 1vw;
-
+  margin-bottom: 1vw;
 }
 
 .navButton {
@@ -91,11 +116,10 @@ client/components/header/
   background-color:  rgb(91, 228, 244);
 }
 
-#navBar span {
-  width: 2vw;
-
+.prevNext {
+  float: right;
+  margin-right: 2vw;
 }
-
 
 .article-wrapper {
   display: grid;

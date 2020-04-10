@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 const Article = ({thumbnail, title, sub, t3Id, numComments}) => {
 
-  thumbnail = (thumbnail === 'default') ? '../../assets/images/no-image.png': thumbnail;
+  thumbnail = (thumbnail === 'default' || thumbnail === 'self') ? '../../assets/images/no-image.png': thumbnail;
 
     return (
       <Link to={`/comments/${sub}/${t3Id}`} >
@@ -23,4 +23,3 @@ const Article = ({thumbnail, title, sub, t3Id, numComments}) => {
 }
 
 export default Article;
-

@@ -1,7 +1,7 @@
 {
-  "name": "reddit-client",
+  "name": "redditto",
   "version": "1.0.0",
-  "description": "react reddit client",
+  "description": "redditto - a react reddit client",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot"

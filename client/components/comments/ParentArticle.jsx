@@ -2,7 +2,8 @@ import React from 'react';
 
 const ParentArticle = ({thumbnail, title}) => {
 
-  thumbnail = (thumbnail === '') ? '../../assets/images/no-image.png': thumbnail;
+  thumbnail = (thumbnail === '' || thumbnail === 'self') ? '../../assets/images/no-image.png': thumbnail;
+
     return (
       <div className='parent-article-wrapper'>
         <div className='image'>

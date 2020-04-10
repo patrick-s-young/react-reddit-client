@@ -3,16 +3,15 @@ import { useParams } from 'react-router';
 import Comment from './Comment.jsx';
 import ParentArticle from './ParentArticle.jsx'
 
-let keyCount = 100;
-
 const Comments = () => {
   const { sub, parentId } = useParams();
   const [commentsObj, setCommentsObj] = useState(null);
-  const limit = 25;
-  let renderedComments = [];
+  const renderArr = [];
+  let keyCount = 100;
 
   useEffect(() => {
-    fetchListing(`https://www.reddit.com/r/${sub}/comments/${parentId.slice(3)}/best.json?limit=${limit}`); 
+    window.scrollTo(0, 0);
+    fetchListing(`${global.BASE_URL}/${sub}/comments/${parentId.slice(3)}/best.json?limit=${global.DEFAULT_LIMIT}`); 
   }, []);
 
   function fetchListing (url) {
@@ -24,9 +23,6 @@ const Comments = () => {
       });
   }
   
-
-  const renderArr = [];
-
   function showComments () {
     render(commentsObj[1].data.children, 0);
 
@@ -44,8 +40,6 @@ const Comments = () => {
     }
     return renderArr;
   }
- 
-  
 
   return (
     <div>

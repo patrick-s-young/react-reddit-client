@@ -8,6 +8,7 @@ const Comment = ({body, level}) => {
       marginLeft: leftIndent,
       backgroundColor: `rgb(${rgb})`
     }
+    
     return (
       <div className='comment'
             style={divStyle}>
