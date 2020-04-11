@@ -1,7 +1,7 @@
 # react-reddit-client
 React Reddit client with Hooks and Router.
-![](images/00_reddit_home.gif)
-![](images/01_reddit_comments.gif)
+![](images/00_reddit-home.gif)
+![](images/01_reddit-comments.gif)
 
 ## Running Locally
 
